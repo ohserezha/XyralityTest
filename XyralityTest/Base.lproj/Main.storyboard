@@ -22,15 +22,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ec-yO-XV8">
-                                <rect key="frame" x="180" y="139" width="241" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="241" id="yLn-u0-i13"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0I-h7-Vio">
                                 <rect key="frame" x="219" y="271" width="163" height="58"/>
                                 <animations/>
@@ -45,6 +36,15 @@
                                     <action selector="processButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kuo-t7-Ybf"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ec-yO-XV8" userLabel="Login Text Field">
+                                <rect key="frame" x="180" y="139" width="241" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="241" id="yLn-u0-i13"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -70,7 +70,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="6Ec-yO-XV8" id="QGW-VT-xb4"/>
+                        <outlet property="loginTextField" destination="6Ec-yO-XV8" id="thg-Gp-IqF"/>
                         <outlet property="passwordTextField" destination="TrD-hl-vrp" id="rhn-Sl-Cxg"/>
                     </connections>
                 </viewController>

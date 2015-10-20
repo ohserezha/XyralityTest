@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "APIManager.h"
 
 @interface LoginViewController ()
 
@@ -35,5 +36,10 @@
 */
 
 - (IBAction)processButtonTapped:(id)sender {
+    [[APIManager sharedManager] getWorldsListWithCredentialsLogin:self.loginTextField.text password:self.passwordTextField.text onSuccess:^(id responseObject) {
+        NSLog(@"response %@", responseObject);
+    } onFailure:^(NSError *error) {
+        NSLog(@"error");
+    }];
 }
 @end

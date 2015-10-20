@@ -10,4 +10,10 @@
 
 @interface APIManager : NSObject
 
++ (instancetype)sharedManager;
+- (void)getWorldsListWithCredentialsLogin:(NSString *)login
+                                 password:(NSString *)password
+                                onSuccess:(void (^)(id responseObject))successBlock
+                                onFailure:(void(^)(NSError *error))failureBlock;
+
 @end
