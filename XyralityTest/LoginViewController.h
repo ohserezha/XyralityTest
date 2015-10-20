@@ -11,6 +11,8 @@
 @interface LoginViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *loginTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIView *networkActivityView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *networkActivityIndicator;
 
 - (IBAction)processButtonTapped:(id)sender;
 @end

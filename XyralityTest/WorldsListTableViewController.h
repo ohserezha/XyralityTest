@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WorldsListTableViewController : UITableViewController
-
+@property (strong, nonatomic) NSArray *worldsList;
 @end

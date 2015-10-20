@@ -27,9 +27,6 @@ static NSString * const kWorldsListRequestURL = @"http://backend1.lordsandknight
     requestManager.responseSerializer = [AFPropertyListResponseSerializer serializer];
     NSString *deviceType = [NSString stringWithFormat:@"%@ - %@ %@", [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]];
     NSString *deviceID = [[NSUUID UUID] UUIDString];
-    //temporary for testing purposes
-    login = @"ios.test@xyrality.com";
-    password = @"password";
     NSDictionary *parametersDict = @{@"login":login,
                                  @"password":password,
                                  @"deviceType":deviceType,
