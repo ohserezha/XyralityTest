@@ -40,7 +40,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.worldsList.count == 0) {
+    if (self.worldsList.count == 0 || self.worldsList == nil) {
         return 1;
     }
     return self.worldsList.count;
@@ -48,11 +48,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"cellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    if (self.worldsList.count == 0) {
+    if (self.worldsList.count == 0 || self.worldsList == nil) {
         cell.textLabel.text = @"You have no available game worlds";
     } else {
         NSDictionary *worldDescription = self.worldsList[indexPath.row];

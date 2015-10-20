@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "APIManager.h"
+#import "WorldsListTableViewController.h"
 
 @interface LoginViewController ()
 
@@ -36,10 +37,6 @@
 */
 
 - (IBAction)processButtonTapped:(id)sender {
-    #warning do not forget to remove
-    self.loginTextField.text = @"ios.test@xyrality.com";
-    self.passwordTextField.text = @"password";
-
     if (![self areLoginPassFieldsValid]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Ouch!" message:@"One of textfields is empty. Please fill it with correct value" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
@@ -50,18 +47,14 @@
         [self presentViewController:alertController animated:YES completion:nil];
         return;
     }
-    [self showNetworkActivityView];
     [[APIManager sharedManager] getWorldsListWithCredentialsLogin:self.loginTextField.text password:self.passwordTextField.text onSuccess:^(id responseObject) {
-        [self hideNetworkActivityView];
-        NSLog(@"success");
         if (responseObject && responseObject[@"allAvailableWorlds"]) {
+            WorldsListTableViewController *worldsListController = [[WorldsListTableViewController alloc] init];
             NSArray *worldsList = (NSArray *)responseObject[@"allAvailableWorlds"];
-            // provide data for table view
-            // perform segue
+            worldsListController.worldsList = worldsList;
+            [self.navigationController pushViewController:worldsListController animated:YES];
         }
     } onFailure:^(NSError *error) {
-        [self hideNetworkActivityView];
-        NSLog(@"failure");
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"An error occured while talking to server" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * action) {
@@ -79,16 +72,5 @@
         return NO;
     }
     return YES;
-}
-
-- (void)showNetworkActivityView {
-//    self.networkActivityView.hidden = NO;
-//    [self.networkActivityView setUserInteractionEnabled:NO];
-//    [self.networkActivityIndicator startAnimating];
-}
-
-- (void)hideNetworkActivityView {
-//    [self.networkActivityIndicator stopAnimating];
-//    self.networkActivityView.hidden = YES;
 }
 @end
