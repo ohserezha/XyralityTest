@@ -28,7 +28,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="163" id="lr3-N3-AN9"/>
                                 </constraints>
-                                <state key="normal" title="Process">
+                                <state key="normal" title="Get Worlds">
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
